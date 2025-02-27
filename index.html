@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroVision - AI Soil & Plant Detector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splashScreen">
+       
+        <h1 class="splash-title">AgroVision</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="hidden">
+        <h1>AI Soil & Plant Disease Detector</h1>
+
+        <!-- Navigation -->
+        <nav>
+            <button class="btn btn-success" onclick="showSection('soilDetector')">Soil Detector</button>
+            <button class="btn btn-danger" onclick="showSection('plantDetector')">Plant Disease Detector</button>
+            <button class="btn btn-warning" onclick="showSection('schedule')">Schedule</button>
+        </nav>
+
+        <!-- Soil Health Detector -->
+        <div id="soilDetector" class="section hidden">
+            <h2>Soil Health Detector</h2>
+            <form id="soilForm">
+                <label for="soilImage">Upload Soil Image:</label>
+                <input type="file" id="soilImage" accept="image/*" required>
+                <button type="button" class="btn btn-primary" onclick="analyzeSoil()">Analyze Soil</button>
+            </form>
+            <p id="soilRecommendations"></p>
+            <img id="soilPreview" class="img-preview" src="" alt="Soil Preview">
+        </div>
+
+        <!-- Plant Disease Detector -->
+        <div id="plantDetector" class="section hidden">
+            <h2>Plant Disease Identifier</h2>
+            <label for="uploadImage">Upload Plant Image:</label>
+            <input type="file" id="uploadImage" accept="image/*" class="form-control">
+            <button type="button" class="btn btn-primary" onclick="analyzePlant()">Analyze Plant</button>
+            <img id="plantImage" class="img-preview" style="display:none;" alt="Plant Image">
+        </div>
+
+        <!-- Watering & Harvest Schedule -->
+        <div id="schedule" class="section hidden">
+            <h2>Watering & Harvest Schedule</h2>
+            <h3>Watering Schedule</h3>
+            <ul>
+                <li>🌱 Small Plants: Every 2 days</li>
+                <li>🌳 Trees: Once a week</li>
+                <li>🥬 Vegetables: Every morning</li>
+                <li>🍓 Fruits: Twice a week</li>
+            </ul>
+
+            <h3>Harvest Planning</h3>
+            <ul>
+                <li>🌾 Wheat: 90 days after planting</li>
+                <li>🍅 Tomatoes: 60 days after planting</li>
+                <li>🥕 Carrots: 70 days after planting</li>
+                <li>🍎 Apples: 150 days after flowering</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
